@@ -1,0 +1,7 @@
+{
+  "all": true,
+  "include": ["app/**"],
+  "exclude": ["app/Models/Traits", "app/Validators/**", "app/Models/Token.js", "app/Exceptions"],
+  "reporter": "html",
+  "report-dir": "test/coverage"
+}

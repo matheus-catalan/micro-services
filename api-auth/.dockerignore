@@ -1,0 +1,26 @@
+# Node modules
+
+node_modules
+README.md
+docker-compose.yml
+
+
+
+# The testing sqlite file
+database/*.sqlite
+
+# the file of tests
+.nyc_output
+test/coverage
+
+
+.nycrc
+.eslintrc.js
+.eslintignore
+.env.testing
+.env.test
+.env.example
+.env
+.editorconfig
+.dockerignore
+.git

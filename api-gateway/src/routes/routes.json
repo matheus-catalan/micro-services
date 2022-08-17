@@ -1,0 +1,502 @@
+{
+  "services": [
+    {
+      "name": "AUTH",
+      "host": "http://api-auth",
+      "port": "3333",
+      "paths": [
+        {
+          "path": "/routes",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "list_routes_auth"
+        },
+        {
+          "path": "/sessions",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "sessions_store"
+        },
+        {
+          "path": "/sessions/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "sessions_destroy"
+        },
+        {
+          "path": "/validate",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "validate"
+        },
+        {
+          "path": "/users",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "users_index"
+        },
+        {
+          "path": "/users",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "users_store"
+        },
+        {
+          "path": "/users/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "users_show"
+        },
+        {
+          "path": "/users/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "users_update"
+        },
+        {
+          "path": "/users/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "users_destroy"
+        },
+        {
+          "path": "/forgot/password",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "forgot_password"
+        },
+        {
+          "path": "/forgot/password/save",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "forgot_password_save"
+        },
+        {
+          "path": "/permissions",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "permissions_index"
+        },
+        {
+          "path": "/permissions",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "permissions_store"
+        },
+        {
+          "path": "/permissions/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "permissions_show"
+        },
+        {
+          "path": "/permissions/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "permissions_update"
+        },
+        {
+          "path": "/permissions/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "permissions_destroy"
+        },
+        {
+          "path": "/roles",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "roles_index"
+        },
+        {
+          "path": "/roles",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "roles_store"
+        },
+        {
+          "path": "/roles/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "roles_show"
+        },
+        {
+          "path": "/roles/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "roles_update"
+        },
+        {
+          "path": "/roles/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "roles_destroy"
+        },
+        {
+          "path": "/modules",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "modules_index"
+        },
+        {
+          "path": "/modules",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "modules_store"
+        },
+        {
+          "path": "/modules/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "modules_show"
+        },
+        {
+          "path": "/modules/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "modules_update"
+        },
+        {
+          "path": "/modules/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "modules_destroy"
+        }
+      ]
+    },
+    {
+      "name": "ERP",
+      "host": "http://api-erp",
+      "port": "3334",
+      "paths": [
+        {
+          "path": "/routes",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "list_routes_erp"
+        },
+        {
+          "path": "/type/work",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "type_work"
+        },
+        {
+          "path": "/type/employees",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "type_employees_index"
+        },
+        {
+          "path": "/type/employees",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "type_employees_store"
+        },
+        {
+          "path": "/type/employees/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "type_employees_show"
+        },
+        {
+          "path": "/type/employees/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "type_employees_update"
+        },
+        {
+          "path": "/type/employees/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "type_employees_destroy"
+        },
+        {
+          "path": "/offices",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "offices_index"
+        },
+        {
+          "path": "/offices",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "offices_store"
+        },
+        {
+          "path": "/offices/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "offices_show"
+        },
+        {
+          "path": "/offices/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "offices_update"
+        },
+        {
+          "path": "/offices/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "offices_destroy"
+        },
+        {
+          "path": "/employee",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "employee_index"
+        },
+        {
+          "path": "/employee",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "employee_store"
+        },
+        {
+          "path": "/employee/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "employee_show"
+        },
+        {
+          "path": "/employee/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "employee_update"
+        },
+        {
+          "path": "/phones/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "phones_update"
+        },
+        {
+          "path": "/phones/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "phones_destroy"
+        },
+        {
+          "path": "/contract",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "contract_index"
+        },
+        {
+          "path": "/contract",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "contract_store"
+        },
+        {
+          "path": "/contract/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "contract_show"
+        },
+        {
+          "path": "/contract/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "contract_update"
+        },
+        {
+          "path": "/contract/send/:contract_id",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "send_:contract_id"
+        },
+        {
+          "path": "/contract/signature/:user",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "signature_:user"
+        },
+        {
+          "path": "/contract/status/:contract_id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "status_:contract_id"
+        },
+        {
+          "path": "/employees/file",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "employees_file_index"
+        },
+        {
+          "path": "/employees/file",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "employees_file_store"
+        },
+        {
+          "path": "/employees/file/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "employees_file_show"
+        },
+        {
+          "path": "/employees/file/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "employees_file_update"
+        },
+        {
+          "path": "/employees/file/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "employees_file_destroy"
+        },
+        {
+          "path": "/erp/files",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "erp_files_index"
+        },
+        {
+          "path": "/erp/files",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "erp_files_store"
+        },
+        {
+          "path": "/erp/files/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "erp_files_destroy"
+        },
+        {
+          "path": "/file/type",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "file_type_index"
+        },
+        {
+          "path": "/file/type",
+          "method": [
+            "POST"
+          ],
+          "permission_required": "file_type_store"
+        },
+        {
+          "path": "/file/type/:id",
+          "method": [
+            "HEAD",
+            "GET"
+          ],
+          "permission_required": "file_type_show"
+        },
+        {
+          "path": "/file/type/:id",
+          "method": [
+            "PUT",
+            "PATCH"
+          ],
+          "permission_required": "file_type_update"
+        },
+        {
+          "path": "/file/type/:id",
+          "method": [
+            "DELETE"
+          ],
+          "permission_required": "file_type_destroy"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+
+  db-auth:
+    image: postgres
+    container_name: db-auth
+    restart: always
+    tty: true
+    environment:
+      POSTGRES_DB: auth
+      POSTGRES_USER: uaufi
+      POSTGRES_PASSWORD: uaufi 
+    volumes:
+      - ./db/auth:/var/lib/postgresql/data/
+    ports:
+      - 5430:5430
+    command: -p 5430
+    networks:
+      - uaufi_network
+
+  db-erp:
+    image: postgres
+    container_name: db-erp
+    restart: always
+    tty: true
+    environment:
+      POSTGRES_DB: erp
+      POSTGRES_USER: uaufi
+      POSTGRES_PASSWORD: uaufi
+    volumes:
+      - ./db/erp:/var/lib/postgresql/data/
+    ports:
+      - 5431:5431
+    command: -p 5431
+    networks:
+      - uaufi_network
+
+  api-gateway:
+    build:
+      context: api-gateway
+    container_name: api-gateway
+    entrypoint: dockerize -template ./.docker/.env-gateway:.env -template ./.docker/Sao_Paulo:/etc/localtime ./.docker/docker-entrypoint.sh
+    networks:
+      - uaufi_network
+    volumes:
+      - ./api-gateway:/usr/src/app
+    tty: true
+    ports:
+      - 3000:3000
+  
+  api-auth:
+    build: 
+      context: ./api-auth
+    container_name: "api-auth"
+    entrypoint: dockerize -template ./.docker/.env-auth:.env -template ./.docker/Sao_Paulo:/etc/localtime  -wait tcp://db-auth:5430 -timeout 180s ./.docker/docker-entrypoint.sh
+    tty: true
+    volumes:
+      - ./api-auth:/usr/src/app/
+    ports:
+      - 3001:3333
+    links:
+      - db-auth
+    depends_on:
+      - db-auth
+      - api-gateway
+    networks:
+      - uaufi_network
+
+  api-erp:
+    build: 
+      context: ./api-erp
+    container_name: api-erp
+    entrypoint: dockerize -template ./.docker/.env-erp:.env -template ./.docker/Sao_Paulo:/etc/localtime -wait tcp://db-erp:5431 -timeout 180s ./.docker/docker-entrypoint.sh
+    tty: true
+    volumes:
+      - ./api-erp:/usr/src/app
+    ports:
+      - 3002:3333 
+    links:
+      - db-erp
+    depends_on:
+      - db-erp
+      - api-gateway
+    networks:
+      - uaufi_network
+
+networks:
+  uaufi_network:
+    driver: bridge

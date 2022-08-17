@@ -1,0 +1,42 @@
+version: '3'
+services:
+  db-auth:
+    image: postgres
+    container_name: db-auth
+    restart: always
+    tty: true
+    environment:
+      POSTGRES_DB: auth
+      POSTGRES_USER: uaufi
+      POSTGRES_PASSWORD: uaufi 
+    volumes:
+      - ../db/auth:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    networks:
+      - uaufi_network
+
+
+  api-auth:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-auth
+    entrypoint: dockerize -template ./.docker/.env-auth:.env -wait tcp://db-auth:5432 -timeout 180s ./.docker/docker-entrypoint.sh
+    tty: true
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - "3333:3333"
+    links:
+      - db-auth
+    depends_on:
+      - db-auth
+    networks:
+      - uaufi_network
+
+      
+networks:
+  uaufi_network:
+    driver: bridge
+    name: uaufi_network

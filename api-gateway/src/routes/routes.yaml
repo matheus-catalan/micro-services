@@ -1,0 +1,255 @@
+- name: AUTH
+  host: http://api-auth
+  port: 3333
+  paths:
+    - path: /
+      method: GET
+      permission_required: list_routes
+
+    - path: /sessions/:id
+      method: DELETE
+      permission_required: delete_session
+
+    - path: /validate
+      method: POST
+      permission_required: validate_session
+
+    - path: /users
+      method: GET
+      permission_required: index_user
+
+    - path: /users
+      method: POST
+      permission_required: store_user
+
+    - path: /users/:id
+      method: GET
+      permission_required: show_user
+
+    - path: /users/:id
+      method: PUT
+      permission_required: update_user
+
+    - path: /users/:id
+      method: DELETE
+      permission_required: delete_user
+
+    - path: /forgot/password
+      method: POST
+      permission_required: forgot_password
+
+    - path: /forgot/password/save
+      method: POST
+      permission_required: forgot_password_save
+
+    - path: /permissions
+      method: GET
+      permission_required: index_permission
+
+    - path: /permissions
+      method: POST
+      permission_required: store_permission
+
+    - path: /permissions/:id
+      method: GET
+      permission_required: show_permission
+
+    - path: /permissions/:id
+      method: PUT
+      permission_required: update_permission
+
+    - path: /permissions/:id
+      method: DELETE
+      permission_required: delete_permission
+
+    - path: /roles
+      method: GET
+      permission_required: index_role
+
+    - path: /roles
+      method: POST
+      permission_required: store_roles
+
+    - path: /roles/:id
+      method: GET
+      permission_required: show_role
+
+    - path: /roles/:id
+      method: PUT
+      permission_required: update_role
+
+    - path: /roles/:id
+      method: DELETE
+      permission_required: delete_user
+
+    - path: /modules
+      method: GET
+      permission_required: index_module
+
+    - path: /modules
+      method: POST
+      permission_required: store_module
+
+    - path: /modules/:id
+      method: GET
+      permission_required: show_module
+
+    - path: /modules/:id 
+      method: PUT
+      permission_required: update_module
+
+    - path: /modules/:id 
+      method: DELETE
+      permission_required: delete_module
+
+- name: ERP
+  host: http://api-erp
+  port: 3333
+  paths:
+    - path: /type/work  
+      method: GET  
+      permission_required: index_type_work
+
+    - path: /type/employees  
+      method: GET  
+      permission_required: index_type_employees
+
+    - path: /type/employees
+      method: POST      
+      permission_required: store_type_employees
+
+    - path: /type/employees/:id  
+      method: GET  
+      permission_required: show_type_employees
+
+    - path: /type/employees/:id
+      method: PUT
+      permission_required: update_type_employees
+
+    - path: /type/employees/:id            
+      method: DELETE    
+      permission_required: delete_type_employees
+
+    - path: /offices  
+      method: GET  
+      permission_required: index_offices
+
+    - path: /offices    
+      method: POST   
+      permission_required: post_offices   
+
+    - path: /offices/:id  
+      method: GET  
+      permission_required: show_offices
+
+    - path: /offices/:id
+      method: PUT
+      permission_required: update_offices
+
+    - path: /offices/:id
+      method: DELETE
+      permission_required: delete_offices    
+
+    - path: /employee  
+      method: GET  
+      permission_required: index_employees
+
+    - path: /employee   
+      method: POST  
+      permission_required: store_employees    
+
+    - path: /employee/:id  
+      method: GET  
+      permission_required: show_employees
+
+    - path: /employee/:id
+      method: PUT
+      permission_required: update_employees
+
+    - path: /phones/:id
+      method: PUT
+      permission_required: update_phones
+
+    - path: /phones/:id
+      method: DELETE    
+      permission_required: delete_phones
+
+    - path: /contract  
+      method: GET  
+      permission_required: index_contract
+
+    - path: /contract
+      method: POST      
+      permission_required: store_contract
+
+    - path: /contract/:id  
+      method: GET  
+      permission_required: show_contract
+
+    - path: /contract/:id                  
+      method: PUT
+      permission_required: update_contract
+
+    - path: /contract/send/:contract_id
+      method: POST
+      permission_required: send_contract      
+
+    - path: /contract/signature/:user
+      method: POST      
+      permission_required: signature_contract
+
+    - path: /contract/status/:contract_id  
+      method: GET  
+      permission_required: status_contract
+
+    - path: /employees/file  
+      method: GET  
+      permission_required: index_employee_file
+
+    - path: /employees/file
+      method: POST   
+      permission_required: store_employee_file   
+
+    - path: /employees/file/:id  
+      method: GET  
+      permission_required: show_employee_file
+
+    - path: /employees/file/:id
+      method: PUT
+      permission_required: update_employee_file
+
+    - path: /employees/file/:id
+      method: DELETE   
+      permission_required: delete_employee_file 
+
+    - path: /erp/files  
+      method: GET  
+      permission_required: index_erp_file
+
+    - path:  /erp/files
+      method: POST
+      permission_required: store_erp_file      
+
+    - path: /erp/files/:id            
+      method: DELETE  
+      permission_required: delete_erp_file  
+
+    - path: /file/type  
+      method: GET  
+      permission_required: index_file_type
+
+    - path: /file/type
+      method: POST
+      permission_required: store_file_type      
+
+    - path: /file/type/:id  
+      method: GET  
+      permission_required: show_file_type
+
+    - path: /file/type/:id
+      method: PUT
+      permission_required: update_file_type
+
+    - path: /file/type/:id
+      method: DELETE
+      permission_required: delete_file_type    
